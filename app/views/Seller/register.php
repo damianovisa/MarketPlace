@@ -50,7 +50,7 @@
     </div>
 
     <div class="col-12">
-        <input class="btn btn-primary" name="action" type="submit" href="/User/Register" value="Register">
+        <input class="btn btn-primary" name="action" type="submit" href="/Seller/Register" value="Register">
     </div>
 </form>
 
