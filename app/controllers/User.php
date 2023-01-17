@@ -46,6 +46,11 @@ class User extends \app\core\Controller{
 		}
     }
 
+	public function cart(){
+		$item = new \app\models\Product();
+		$items = $item->getAllProducts();
+		$this->view('/User/cart',$items);
+	}
 
 
 }

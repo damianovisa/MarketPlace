@@ -6,35 +6,6 @@
 </head>
 <body>
 
-<!-- <div class="blockcode" >
-  <footer class="page-footer shadow">
-    <div
-      class="d-flex flex-wrap justify-content-between align-items-center mx-auto py-4"
-      style="width: 80%">
-      <div class="d-flex flex-wrap align-items-center">
-        <a class="d-flex align-items-center p-0 text-dark">
-          <span class="ml-4 h5 mb-0 font-weight-bold"><?=_("Dams")?></span>
-        </a>
-        <span
-          style="font-size: 3em; margin: -2rem 0px -1.5rem 1rem; color: #c4c4c4;">&#8226;</span
-        >
-        <small class="ml-2"><?=_("&copy; Dams,")?> <?= date("Y")?> <?=_(". All rights reserved.")?></small>
-      </div>
-      <div>
-        <button class="btn btn-dark btn-flat p-2">
-            <i class="fa fa-facebook"></i>
-        </button>
-        <button class="btn btn-dark btn-flat p-2">
-            <i class="fa fa-twitter"></i>
-        </button>
-        <button class="btn btn-dark btn-flat p-2">
-            <i class="fa fa-instagram"></i>
-        </button>
-      </div>
-    </div>
-  </footer>
-</div> -->
-
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
