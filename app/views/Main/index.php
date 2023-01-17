@@ -41,7 +41,7 @@
                             <?php if(isset($_SESSION['user_id'])) {?>
                                 <span><a href="#" class="btn btn-success"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
                             <?php }else{?>
-                                <span><a href="#" class="btn btn-success disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
+                                <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
                             <?php }?>
                     
                         </div>

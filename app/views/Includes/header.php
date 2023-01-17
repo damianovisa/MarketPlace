@@ -47,14 +47,14 @@
       <form class="d-flex" role="search">
       
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success" type="submit"><?=_("Search")?></button>
         
       </form>
 
       <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])){?>
         <a class="btn btn-primary m-2" href="#"><?=_("Profile")?></a>
       <?php }else{?>
-        <a class="btn btn-primary m-2" href="/User/Login"><?=_("Login")?></a>
+        <a class="btn btn-primary m-2" href="/User/Login"><?=_("Sign in")?></a>
       <?php }?>
 
     </div>
