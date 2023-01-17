@@ -22,17 +22,23 @@
                 <div class="card shadow-sm h-100" >
                     <div>
                         <div class=""> 
-                        <img src="../images/<?php echo $item->image?>" class="card-img" width="100%" height="250px"/>
+                        <img src="../images/<?php echo $item->image?>" class="card-img p-3" width="100%" height="250px"/>
                         <div class="card-body">
                         <div class="text-center">
                         <h5 class="card-title"><?php echo $item->name ?></h5>
                         <p class="text-muted mb-4">by <?php echo $item->manufacturer ?></p>
                         </div>
                         <div>
-                        <div class="d-flex">
-                            <span><?php echo $item->description ?></span>
-                        </div>
-                        
+                            <?php if(strlen($item->description) < 25){?>
+                                <div class="d-flex">
+                                    <span><?php echo $item->description ?></span>
+                                </div>
+                            <?php }else{?>
+                                <div class="d-flex">
+                                    <span>Click for more</span>
+                                </div>
+                            <?php }?>
+                    
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
                         <span><a href="#" class="btn btn-success"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
@@ -47,7 +53,7 @@
         </div>
 </div>
 
-<?php $this->view('/Includes/footer') ?>
+<?php $this->view('/Includes/footer') ?>    
 
 </body>
 </html>
