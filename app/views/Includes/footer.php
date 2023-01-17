@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div class="blockcode">
+<div class="blockcode" >
   <footer class="page-footer shadow">
     <div
       class="d-flex flex-wrap justify-content-between align-items-center mx-auto py-4"
@@ -18,11 +18,10 @@
         <span
           style="font-size: 3em; margin: -2rem 0px -1.5rem 1rem; color: #c4c4c4;">&#8226;</span
         >
-        <small class="ml-2"><?=_("&copy; Devwares, 2020. All rights reserved.")?></small>
+        <small class="ml-2"><?=_("&copy; Dams,")?> <?= date("Y")?> <?=_(". All rights reserved.")?></small>
       </div>
       <div>
         <button class="btn btn-dark btn-flat p-2">
-            <a href="www.google.com"></a>
             <i class="fa fa-facebook"></i>
         </button>
         <button class="btn btn-dark btn-flat p-2">

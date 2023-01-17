@@ -36,5 +36,7 @@
 
 <script src="/resources/validation.js"></script>
 
+<?= $this->view('/Includes/footer')?>
+
 </body>
 </html>

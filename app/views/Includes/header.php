@@ -27,9 +27,13 @@
 
         <?php }?>
         
+        <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
         <li class="nav-item">
           <a class="nav-link" href="/Main/logout">Logout</a>
         </li>
+        <?php }else{?>
+          
+        <?php }?>
         
         <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
         <li class="nav-item">

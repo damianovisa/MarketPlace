@@ -29,8 +29,8 @@
                         <p class="text-muted mb-4">by <?php echo $item->manufacturer ?></p>
                         </div>
                         <div>
-                            <?php if(strlen($item->description) >= 35){?>
-                                <?=substr($item->description,0,35)."...";?>
+                            <?php if(strlen($item->description) > 28){?>
+                                <?=substr($item->description,0,32)."...";?>
                                 
                             <?php }else{?>
                                 <?=$item->description?>
