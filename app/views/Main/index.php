@@ -29,16 +29,13 @@
                         <p class="text-muted mb-4">by <?php echo $item->manufacturer ?></p>
                         </div>
                         <div>
-                            <?php if(strlen($item->description) < 25){?>
-                                <div class="d-flex">
-                                    <span><?php echo $item->description ?></span>
-                                </div>
+                            <?php if(strlen($item->description) >= 35){?>
+                                <?=substr($item->description,0,35)."...";?>
+                                
                             <?php }else{?>
-                                <div class="d-flex">
-                                    <span>Click for more</span>
-                                </div>
+                                <?=$item->description?>
                             <?php }?>
-                    
+                            
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
                         <span><a href="#" class="btn btn-success"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
