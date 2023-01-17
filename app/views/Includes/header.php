@@ -23,14 +23,22 @@
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link" href="/Main/logout">Logout</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <!-- <p class="text-center text-light"><?=_("Welcome")?> <?=$_SESSION['fname']?></p>   -->
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <a class="btn btn-primary m-2" href="/User/login"><?=_("Login")?></a>
+
+      <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])){?>
+        <a class="btn btn-primary m-2" href="#"><?=_("Profile")?></a>
+      <?php }else{?>
+        <a class="btn btn-primary m-2" href="/User/Login"><?=_("Login")?></a>
+      <?php }?>
+
+      <!-- <a class="btn btn-primary m-2" href="/User/login"><?= !isset($_SESSION['user_id']) || !isset($_SESSION['seller_id']) ? "Login" : "Profile"?></a> -->
     </div>
   </div>
 </nav>

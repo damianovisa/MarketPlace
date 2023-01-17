@@ -10,18 +10,19 @@
 <body>
     <?php $this->view("/Includes/header")?>
 
-    </br>
+    <div class="row m-3 justify-content-center">
+        <img src="../images/banner.jpg" style="width:90%; height:65vh" class="img-fluid">
+    </div>
+
     <div class="container">
-        <div class="row">
-            <h1><?=_("Products")?></h1>
-        </div>
+
         <div class="row">
             <?php foreach ($data as $item){?>
             <div class="col-sm-3 mb-5">
                 <div class="card shadow-sm h-100" >
                     <div>
                         <div class=""> 
-                        <img src="../images/<?php echo $item->image?>" class="card-img" width=100% height="250"/>
+                        <img src="../images/<?php echo $item->image?>" class="card-img" width="100%" height="250px"/>
                         <div class="card-body">
                         <div class="text-center">
                         <h5 class="card-title"><?php echo $item->name ?></h5>
@@ -34,39 +35,14 @@
                         
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
-                        <span>Price</span><span>$<?php echo $item->price ?></span>
+                        <span><a href="#" class="btn btn-success"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
                         </div>
                     </div>
                     </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="container py-5">
-                <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-3">
-                    <div class="card text-black"> 
-                    <img src="../images/<?php echo $item->image?>" class="card-img-top"/>
-                    <div class="card-body">
-                        <div class="text-center">
-                        <h5 class="card-title"><?php echo $item->name ?></h5>
-                        <p class="text-muted mb-4">by <?php echo $item->manufacturer ?></p>
-                        </div>
-                        <div>
-                        <div class="d-flex justify-content-between">
-                            <span><?php echo $item->description ?></span>
-                        </div>
-                        
-                        </div>
-                        <div class="d-flex justify-content-between total font-weight-bold mt-4">
-                        <span>Price</span><span>$<?php echo $item->price ?></span>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div> -->
-
-            
+                     
             <?php }?>
         </div>
 </div>

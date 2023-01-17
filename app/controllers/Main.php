@@ -6,5 +6,10 @@ class Main extends \app\core\Controller{
 		$product = new \app\models\Product();
 		$products = $product->getAllProducts();
 		$this->view('/Main/index',$products);
-	} 
+	}
+	
+	public function logout(){
+		session_destroy();
+		header('location:/User/login');
+	}
 }
