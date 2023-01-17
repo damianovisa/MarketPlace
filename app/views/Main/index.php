@@ -47,5 +47,7 @@
         </div>
 </div>
 
+<?php $this->view('/Includes/footer') ?>
+
 </body>
 </html>

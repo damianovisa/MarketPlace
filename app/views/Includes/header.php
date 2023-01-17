@@ -19,17 +19,32 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/Main/index">Home</a>
         </li>
+        <?php if(isset($_SESSION['seller_id'])) {?>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="/Seller/addProduct"><?=_("Add product")?></a>
         </li>
+        <?php }else{?>
+
+        <?php }?>
+        
         <li class="nav-item">
           <a class="nav-link" href="/Main/logout">Logout</a>
         </li>
+        
+        <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
+        <li class="nav-item">
+          <a class="nav-link disabled "><?=_("Welcome")?> <?= $_SESSION['fname']?></a>
+        </li>
+        <?php }else{?>
+
+          <?php }?>
       </ul>
+
       <form class="d-flex" role="search">
-      <!-- <p class="text-center text-light"><?=_("Welcome")?> <?=$_SESSION['fname']?></p>   -->
+      
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
+        
       </form>
 
       <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])){?>
@@ -38,7 +53,6 @@
         <a class="btn btn-primary m-2" href="/User/Login"><?=_("Login")?></a>
       <?php }?>
 
-      <!-- <a class="btn btn-primary m-2" href="/User/login"><?= !isset($_SESSION['user_id']) || !isset($_SESSION['seller_id']) ? "Login" : "Profile"?></a> -->
     </div>
   </div>
 </nav>
