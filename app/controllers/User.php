@@ -47,9 +47,19 @@ class User extends \app\core\Controller{
     }
 
 	public function cart(){
-		$item = new \app\models\Product();
-		$items = $item->getAllProducts();
-		$this->view('/User/cart',$items);
+		$cart = new \app\models\Cart();
+		$carts = $cart->getCartByUserId($_SESSION['user_id']);
+		$this->view('/User/cart',$carts);
+	}
+	
+	public function addToCart($product_id){
+		$cart = new \app\models\Cart();
+		
+		$cart->product_id = $product_id;
+		$cart->user_id = $_SESSION['user_id'];
+		$cart->insertToCart();
+
+		header('location:/Main/index');
 	}
 
 

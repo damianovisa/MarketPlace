@@ -44,10 +44,7 @@
     
     <div class="col-md-4">
         <label for="validationCustom03" class="form-label"><?=_("Image")?></label>
-        <input type="file" class="form-control" id="validationCustom03" name="image" required>
-        <div class="invalid-feedback">
-         
-        </div>
+        <input type="file" class="form-control" id="customFile" name="image" required>
     </div>
 
     <div class="col-12">

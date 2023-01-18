@@ -65,7 +65,7 @@
                     <input type="password" minlength="1" id="validationCustom03" class="form-control form-control-lg"
                     placeholder="Password" name="password" required/>
                     <div class="invalid-feedback">
-                        Enter a valid email
+                        Password must be 5 characters
                     </div>  
                 </div>
 
