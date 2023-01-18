@@ -62,5 +62,11 @@ class User extends \app\core\Controller{
 		header('location:/Main/index');
 	}
 
+	public function deleteFromCart($cart_id){
+		$cart = new \app\models\Cart();
+		$carts = $cart->delete($cart_id,$_SESSION['user_id']);
+		header('location:/User/cart');
+	}
+
 
 }

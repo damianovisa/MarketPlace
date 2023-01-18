@@ -58,7 +58,7 @@
                       <h6 class="mb-0" id="price">$ <?=$item->price?></h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="#!" class="text-muted"><i class="bi bi-x-lg"></i></a>
+                      <a href="/User/deleteFromCart/<?=$item->cart_id?>" class="text-muted"><i class="bi bi-x-lg"></i></a>
                     </div>
                   </div>
 

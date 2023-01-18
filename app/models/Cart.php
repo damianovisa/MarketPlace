@@ -17,4 +17,10 @@ class Cart extends \app\core\Model{
 		$STMT->execute(['product_id'=>$this->product_id,'user_id'=>$this->user_id]);
 	}
 
+	public function delete($cart_id,$user_id){
+		$SQL = "DELETE FROM cart WHERE cart_id=:cart_id and user_id=:user_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['cart_id'=>$cart_id, 'user_id'=>$user_id]);
+	}
+
 }
