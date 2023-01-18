@@ -62,7 +62,7 @@
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                     <label class="form-label" for="validationCustom03">Password (At least 5 characters)</label>
-                    <input type="password" minlength="1" id="validationCustom03" class="form-control form-control-lg"
+                    <input type="password" minlength="5" id="validationCustom03" class="form-control form-control-lg"
                     placeholder="Password" name="password" required/>
                     <div class="invalid-feedback">
                         Password must be 5 characters
