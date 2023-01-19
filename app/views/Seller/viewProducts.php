@@ -44,7 +44,7 @@
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
                             <span>$<?php echo $item->price ?></span>
-                            <span><a href="/Seller/deleteProduct/<?php $item->product_id?>" class="btn btn-danger"><?=_('Delete')?></a></span>
+                            <span><a href="/Seller/deleteProduct/<?= $item->product_id?>" class="btn btn-danger"><?=_('Delete')?></a></span>
                         </div>
                     </div>
                     </div>
