@@ -66,6 +66,10 @@
         <i class="bi bi-cart-fill pe-2"></i>
         <span class='badge badge-warning' id='lblCartCount' name="cartNb" >0</span>
       </a>
+      <?php } if(isset($_SESSION['seller_id'])) {?>
+        <a class="btn btn-outline-light btn-floating p-2" id="cartBtn" href="/Seller/viewProducts" role="button">
+          <i class="bi bi-bag-fill"></i>
+      </a>
       <?php }?>
 
     </div>

@@ -1,20 +1,25 @@
-<html lang="en">
 <head>
-    <title><?=_("Home")?></title>
+    <title>View Products</title>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- css -->
     <link rel="stylesheet" href="../resources/style.css">
+    <!-- Bootstrap ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
 <body>
-    <?php $this->view("/Includes/header")?>
+    
+    <?php $this->view('/Includes/header');?>
 
-    <div class="row m-3 justify-content-center">
-        <img src="../images/banner.jpg" style="width:90%; height:65vh" class="img-fluid">
-    </div>
+</br>
 
     <div class="container">
+
+        <div class="p-5 text-center bg-light mb-5">
+            <h1 class="mb-3">Your products</h1>
+        </div>
 
         <div class="row">
             <?php foreach ($data as $item){?>
@@ -38,12 +43,8 @@
                             
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
-                            <?php if(isset($_SESSION['user_id'])) {?>
-                                <span><a href="/User/addToCart/<?=$item->product_id ?>" class="btn btn-success"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
-                            <?php }else{?>
-                                <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
-                            <?php }?>
-                    
+                            <span>$<?php echo $item->price ?></span>
+                            <span><a href="/Seller/deleteProduct/<?php $item->product_id?>" class="btn btn-danger"><?=_('Delete')?></a></span>
                         </div>
                     </div>
                     </div>
@@ -55,8 +56,7 @@
         </div>
 </div>
 
-<?php $this->view('/Includes/footer') ?>    
+    <?php $this->view('/Includes/footer');?>
 
 </body>
-
 </html>

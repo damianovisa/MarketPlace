@@ -63,4 +63,20 @@ class Seller extends \app\core\Controller{
 		}
 	}
 
+	public function viewProducts(){
+		$product = new \app\models\Product();
+		$products = $product->getBySeller($_SESSION['seller_id']);
+
+		$this->view('/Seller/viewProducts', $products);
+	}
+
+	public function deleteProduct($product_id){
+		$product = new \app\models\Product();
+		$product = $product->getByProduct($product_id);
+		$product->product_id = $product_id;
+		
+		$product->deleteProduct();
+		header('location:/Seller/viewProducts');
+	}
+
 }

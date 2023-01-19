@@ -5,7 +5,7 @@ class Main extends \app\core\Controller{
 	public function index(){
 		$product = new \app\models\Product();
 		$products = $product->getAllProducts();
-		$this->view('/Main/index',$products);
+		$this->view('/Main/index',$products); 
 	}
 	
 	public function logout(){
