@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2023 at 04:17 AM
+-- Generation Time: Jan 27, 2023 at 05:19 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -33,15 +33,6 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cart_id`, `product_id`, `user_id`) VALUES
-(1, 4, 2),
-(2, 9, 2),
-(4, 11, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -55,23 +46,21 @@ CREATE TABLE `product` (
   `manufacturer` varchar(50) NOT NULL,
   `description` varchar(200) NOT NULL,
   `price` double(20,2) NOT NULL,
-  `image` varchar(75) NOT NULL
+  `image` varchar(75) NOT NULL,
+  `qty` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`product_id`, `seller_id`, `name`, `manufacturer`, `description`, `price`, `image`) VALUES
-(4, 1, 'Mouse', 'Razer', 'Green themed wired gaming mouse', 49.99, 'razerMouse.webp'),
-(5, 1, 'Chair', 'Secret Lab', 'High quality Titan gaming chair', 539.99, 'secretChair.webp'),
-(6, 1, 'Keyboard', 'Razer', 'RGB gaming keyboard', 169.99, 'razerKeyboard.jpeg'),
-(7, 1, 'Microphone', 'Blue Yeti', 'Black microphone for PC', 119.99, 'micYeti.jpg'),
-(8, 1, 'Headset', 'SteelSeries', 'Arctis Pro Gaming Headset with Microphone - Black', 230.49, 'steelseriesHeadset.jpg'),
-(9, 1, 'Modern Warfare 2', 'Infinity Ward', '2022 Modern Warfare 2 Video Game PS5', 89.99, 'mw2.jpg'),
-(10, 1, 'Xbox Series X', 'Microsoft', 'Xbox Series X 1TB console', 599.99, 'xboxSeriesX.png'),
-(11, 1, 'Ps5 controller', 'Sony', 'Ps5 constroller- White', 89.99, 'ps5Controller.webp'),
-(12, 1, 'Samsung TV', 'Samsung', 'Samsung QLED Display 4K UltraHD Smart TV - Q60B', 898.00, 'samsungTv.webp');
+INSERT INTO `product` (`product_id`, `seller_id`, `name`, `manufacturer`, `description`, `price`, `image`, `qty`) VALUES
+(13, 3, 'Gaming Headset', 'SteelSeries', 'SteelSeries Arctis Pro PC Gaming Headset', 229.99, 'steelseriesHeadset.jpg', 0),
+(15, 4, 'Playstation 5', 'Sony', 'Playstation 5 Console -Digital Edition with Dual Sense Controller', 499.99, 'ps5Digital.webp', 0),
+(16, 4, 'Xbox Series X', 'Microsoft', 'Xbox Series X 1TB Console', 599.99, 'xboxSeriesX.png', 0),
+(17, 3, 'Samsung TV', 'Samsung', 'Samsung QLED Display 4K UltraHD Smart TV 50\" - Q60B', 699.99, 'samsungTv.webp', 0),
+(18, 3, 'Gaming Chair', 'Secret Lab', 'Secretlab TITAN XL 2020 Series Gaming Chair', 539.99, 'secretLabChair.jpg', 0),
+(19, 3, 'Mouse', 'Razer', 'Razer DeathAdder V2 Gaming Mouse', 49.99, 'razerMouse.webp', 0);
 
 -- --------------------------------------------------------
 
@@ -93,8 +82,8 @@ CREATE TABLE `seller` (
 --
 
 INSERT INTO `seller` (`seller_id`, `email`, `fname`, `lname`, `password_hash`, `profile_pic`) VALUES
-(1, 'sel@gmail.com', 'Sel', 'er', '$2y$10$QDdAuCR07vZsTYOJKGsm2OT3U4AZRU2NNWK9MyU6tt7u6i/4f/ULK', ''),
-(2, 'tester@gmail.com', 'Test', 'tes', '$2y$10$kVK/knXy.GNyJqhw8wA6/usSRZP7aeij0nw7/mwxPeHnAkKMIw.Xq', '');
+(3, 'batman@gmail.com', 'Pruce', 'Blayne', '$2y$10$kgqjZ4rSVNFoLidBJnOL2upp49Razq6VqdJhuwLcUR6k8LbnqoHSC', ''),
+(4, 'sel@gmail.com', 'Sel', 'Er', '$2y$10$PhuOLrldh/EcEQyLqNAlBuByAYNJZZb2HdBy2sTMZdyeS8wENbbSS', '');
 
 -- --------------------------------------------------------
 
@@ -116,9 +105,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `email`, `fname`, `lname`, `password_hash`, `profile_pic`) VALUES
-(1, 'a@gmail.com', 'a', 'a', '$2y$10$55.X15pEPlP2K0TwbfXq.um7z/fycjSJOTli65flg9YiOVZJssAMK', ''),
-(2, 'dami@gmail.com', 'Damiano', 'Visa', '$2y$10$1e9lNExAN32AbVzgnqo1tuZA7ez5VHkYQil32bXrAFiRTRexNxqIO', ''),
-(4, 'test@test.com', 'Tester', 'test', '$2y$10$i/W4fur3gHzSI/u.lh8TIO90OiqmvD4DpwnilD/zv4YJY5ML.PHaW', '');
+(5, 'dami@gmail.com', 'Dami', 'Visa', '$2y$10$/9Gy7nvPvz31QQsSZxoplu2HuARcDx7q3q40ZDPokRjybcUGzpuQ2', '');
 
 --
 -- Indexes for dumped tables
@@ -159,25 +146,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
-  MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

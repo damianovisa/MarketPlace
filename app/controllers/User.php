@@ -54,7 +54,7 @@ class User extends \app\core\Controller{
 	
 	public function addToCart($product_id){
 		$cart = new \app\models\Cart();
-		
+		 
 		$cart->product_id = $product_id;
 		$cart->user_id = $_SESSION['user_id'];
 		$cart->insertToCart();
