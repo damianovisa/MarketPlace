@@ -39,7 +39,7 @@
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
                             <?php if(isset($_SESSION['user_id'])) {?>
-                                <span><a href="/User/addToCart/<?=$item->product_id ?>" class="btn btn-success"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
+                                <span><a href="/User/addToCart/<?=$item->product_id ?>" class="btn btn-success"><?=_('Add to cart')?></a> <a href="/Main/reviews" class="btn btn-warning p-2 rounded-circle"><i class="bi bi-pencil-fill"></i></a ></span><span>$<?php echo $item->price ?></span>
                             <?php }else{?>
                                 <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
                             <?php }?>

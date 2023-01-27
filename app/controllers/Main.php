@@ -12,4 +12,8 @@ class Main extends \app\core\Controller{
 		session_destroy();
 		header('location:/User/login');
 	}
+
+	public function reviews(){
+		$this->view('/Main/reviews');
+	}
 }
