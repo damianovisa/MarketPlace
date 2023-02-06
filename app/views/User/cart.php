@@ -33,8 +33,13 @@
 
                   <?php foreach($data as $item){?>
 
-                    <?php $totalPrice += $item->price;?>
-                    <?php $totalPriceTax = number_format($totalPrice*0.15, 2);?>
+                    <?php
+                      
+                      $cart = array($item->cart_id);
+                      $cartItems = count($cart);
+
+                      $totalPrice += $item->price;
+                      $totalPriceTax = number_format($totalPrice*0.15, 2);?>
 
                   <div class="row mb-4 d-flex justify-content-between align-items-center">
                     <div class="col-md-2 col-lg-2 col-xl-2">
@@ -85,7 +90,7 @@
 
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-uppercase">items </h5>
-                          
+                    <!-- <?=$cartItems?> -->
                     <h5>$ <?=$totalPrice?></h5>
                   </div>
                   <div class="d-flex justify-content-between mb-4">
