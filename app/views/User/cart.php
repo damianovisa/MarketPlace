@@ -29,7 +29,13 @@
                   </div>
                   <hr class="my-4">
 
+                  <?php $totalPrice = 0;?>
+
                   <?php foreach($data as $item){?>
+
+                    <?php $totalPrice += $item->price;?>
+                    <?php $totalPriceTax = number_format($totalPrice*0.15, 2);?>
+
                   <div class="row mb-4 d-flex justify-content-between align-items-center">
                     <div class="col-md-2 col-lg-2 col-xl-2">
                       <img
@@ -79,7 +85,13 @@
 
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-uppercase">items </h5>
-                    <h5>$ 132.00</h5>
+                          
+                    <h5>$ <?=$totalPrice?></h5>
+                  </div>
+                  <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-muted ">TAX </h5>
+                          
+                    <h5>$ <?=$totalPriceTax?></h5>
                   </div>
 
                   <h5 class="text-uppercase mb-3">Shipping</h5>
@@ -87,9 +99,6 @@
                   <div class="mb-4 pb-2">
                     <select class="select">
                       <option value="1">Standard-Delivery- $5.00</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      <option value="4">Four</option>
                     </select>
                   </div>
 
@@ -106,7 +115,7 @@
 
                   <div class="d-flex justify-content-between mb-5">
                     <h5 class="text-uppercase">Total price</h5>
-                    <h5>$ 137.00</h5>
+                    <h5><?= $totalPriceTax + $totalPrice+ 5?></h5>
                   </div>
 
                   <button type="button" class="btn btn-dark btn-block btn-lg"
