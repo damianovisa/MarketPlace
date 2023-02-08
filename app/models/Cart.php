@@ -11,6 +11,14 @@ class Cart extends \app\core\Model{
 		return $STMT->fetchAll();
 	}
 
+	public function getAll($cart_id){
+        $SQL = "SELECT * FROM cart WHERE cart_id=:cart_id";
+        $STMT = self::$_connection->prepare($SQL);
+        $STMT->execute(['cart_id'=>$cart_id]);
+        $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
+        return $STMT->fetchAll();
+    }
+
 	public function insertToCart(){
 		$SQL = "INSERT INTO cart(product_id,user_id) VALUES (:product_id,:user_id)";
 		$STMT = self::$_connection->prepare($SQL);

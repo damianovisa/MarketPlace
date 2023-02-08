@@ -25,21 +25,28 @@
                 <div class="p-5">
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-                    <h6 class="mb-0 text-muted"> items</h6>
                   </div>
                   <hr class="my-4">
 
-                  <?php $totalPrice = 0;?>
+                  <?php 
+                    $totalPrice = 0;
+                    $cartItems = 0; 
+                  ?>
 
                   <?php foreach($data as $item){?>
-
                     <?php
-                      
-                      $cart = array($item->cart_id);
-                      $cartItems = count($cart);
-
                       $totalPrice += $item->price;
-                      $totalPriceTax = number_format($totalPrice*0.15, 2);?>
+                      $totalPriceTax = number_format($totalPrice*0.15, 2);
+                      
+                      $cart = new \app\models\Cart();
+                      $cart = $cart->getAll($item->cart_id);
+
+                      if(isset($item->cart_id)){
+                        $cartItems += count($cart);
+                      }else{
+                        $cartItems = 0;
+                      }
+                      ?>
 
                   <div class="row mb-4 d-flex justify-content-between align-items-center">
                     <div class="col-md-2 col-lg-2 col-xl-2">
@@ -89,14 +96,23 @@
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-4">
-                    <h5 class="text-uppercase">items </h5>
-                    <!-- <?=$cartItems?> -->
+                    <h5 class="text-uppercase">items <?=$cartItems?></h5>
+                    
+                    <?php if(isset($totalPrice)){?>
                     <h5>$ <?=$totalPrice?></h5>
+                    <?php }else {?>
+                      <h5>$ 0</h5>
+                    <?php } ?>
                   </div>
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-muted ">TAX </h5>
-                          
-                    <h5>$ <?=$totalPriceTax?></h5>
+
+                    <?php if(isset($totalPriceTax)){?>
+                      <h5>$ <?=$totalPriceTax?></h5>
+                    <?php }else {?>
+                      <h5>$ 0</h5>
+                    <?php } ?>
+   
                   </div>
 
                   <h5 class="text-uppercase mb-3">Shipping</h5>
@@ -120,7 +136,12 @@
 
                   <div class="d-flex justify-content-between mb-5">
                     <h5 class="text-uppercase">Total price</h5>
-                    <h5><?= $totalPriceTax + $totalPrice+ 5?></h5>
+                    <?php if(isset($totalPriceTax)){?>
+                      <h5>$ <?= $totalPriceTax + $totalPrice+ 5?></h5>
+                    <?php }else {?>
+                      <h5>$ 0</h5>
+                    <?php } ?>
+
                   </div>
 
                   <button type="button" class="btn btn-dark btn-block btn-lg"
