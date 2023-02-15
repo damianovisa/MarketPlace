@@ -43,6 +43,7 @@
 
                       if(isset($item->cart_id)){
                         $cartItems += count($cart);
+                        
                       }else{
                         $cartItems = 0;
                       }
@@ -82,7 +83,6 @@
 
                   <hr class="my-4">
                   <?php }?>
-
                   
                   <div class="pt-5">
                     <h6 class="mb-0"><a href="/Main/index" class="text-body"><i
