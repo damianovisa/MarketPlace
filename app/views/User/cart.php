@@ -53,7 +53,8 @@
                     <div class="col-md-2 col-lg-2 col-xl-2">
                       <img
                         src="../images/<?=$item->image?>"
-                        class="img-fluid rounded-3" alt="Cotton T-shirt">
+                        class="img-fluid rounded-3">
+                        <h6 class="text-muted mt-2">By <?=$item->manufacturer ?></h6>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
                       <h6 class="text-muted"><?=$item->name?></h6>
