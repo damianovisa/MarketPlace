@@ -16,4 +16,12 @@ class Main extends \app\core\Controller{
 	public function reviews(){
 		$this->view('/Main/reviews');
 	}
+
+	public function productDetails($product_id){
+		$product = new \app\models\Product();
+		$product->product_id = $product_id;
+		$products = $product->getByProduct($product_id);
+		$product->insertProductDetails();
+		$this->view('/Main/productDetails',$products); 
+	}
 }
