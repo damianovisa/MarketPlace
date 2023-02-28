@@ -128,8 +128,9 @@
 
                   <div class="mb-5">
                     <div class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg mb-1" /> 
                       <label class="form-label" for="form3Examplea2">Enter your code</label>
+                      <input type="submit" class="btn btn-success float-end" value="Apply">
                     </div>
                   </div>
 
