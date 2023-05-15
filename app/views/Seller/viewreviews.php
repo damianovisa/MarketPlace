@@ -9,11 +9,9 @@
 </head>
 <body>
     <?php $this->view("/Includes/header")?>
-
-
-            
-                <?php foreach($data as $message){?>
-
+    
+    <?php foreach($data as $message){?>
+                    
 <section>
 <div class="container text-dark">
     <div class="row d-flex justify-content-center">
@@ -30,8 +28,7 @@
                     <div class="row d-flex justify-content-center">
                     <div class="col-md-12 col-lg-10">
                         <div class="card text-dark">
-                        <div class="card-body p-4">
-                        <h4 class="mb-0">Comments</h4>                 
+                        <div class="card-body p-4">               
                 
                             </br>
 
