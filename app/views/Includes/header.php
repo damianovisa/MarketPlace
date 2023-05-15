@@ -75,9 +75,13 @@
         <!-- <?= $cartItems?> -->
       </a>
       <?php } if(isset($_SESSION['seller_id'])) {?>
-        <a class="btn btn-outline-light btn-floating p-2" id="cartBtn" href="/Seller/viewProducts" role="button">
+        <a class="btn btn-outline-light btn-floating p-2 m-2" id="cartBtn" href="/Seller/viewReviews" role="button">
+          <i class="bi bi-chat-left-text-fill"></i>
+      </a>
+      <a class="btn btn-outline-light btn-floating p-2" id="cartBtn" href="/Seller/viewProducts" role="button">
           <i class="bi bi-bag-fill"></i>
       </a>
+        
       <?php }?>
 
     </div>

@@ -81,6 +81,7 @@ class Seller extends \app\core\Controller{
 
 	public function viewReviews(){
 		$seller = new \app\models\Seller();
+		$user = new \app\models\User();
 		$message = $seller->getCommentBySeller($_SESSION['seller_id']);
 		
 		$this->view('/Seller/viewreviews',$message);

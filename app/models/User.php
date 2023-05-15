@@ -26,9 +26,9 @@ class User extends \app\core\Model{
 	}
 
     public function insertReview(){
-		$SQL = "INSERT INTO comment(user_id,seller_id,message) VALUES (:user_id,:seller_id,:message)";
+		$SQL = "INSERT INTO comment(user_id,seller_id,message,date) VALUES (:user_id,:seller_id,:message,:date)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['user_id'=>$this->user_id,'seller_id'=>$this->seller_id,'message'=>$this->message]);
+		$STMT->execute(['user_id'=>$this->user_id,'seller_id'=>$this->seller_id,'message'=>$this->message,'date'=>$this->date]);
 	}
 
 

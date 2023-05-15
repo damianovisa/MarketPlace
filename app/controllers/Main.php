@@ -24,6 +24,7 @@ class Main extends \app\core\Controller{
 			$user->user_id = $_SESSION['user_id'];
 			$user->message = $_POST['message'];
 			$user->seller_id = $seller_id;
+			$user->date = date("M D, y");
 
 			$user->insertReview();
 			}

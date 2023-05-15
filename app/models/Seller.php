@@ -19,6 +19,14 @@ class Seller extends \app\core\Model{
         return $STMT->fetchAll();
 	}
 
+	// public function getCommentByUserId($user_id){
+	// 	$SQL = "SELECT * FROM comment inner join user on user.user_id=comment.user_id where user_id=:user_id";
+	// 	$STMT = self::$_connection->prepare($SQL);
+	// 	$STMT->execute(['user_id'=>$user_id]);
+	// 	$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+	// 	return $STMT->fetchAll();
+	// }
+
     public function insertSeller(){
 		$SQL = "INSERT INTO seller(email,fname,lname,password_hash) VALUES (:email,:fname,:lname,:password_hash)";
 		$STMT = self::$_connection->prepare($SQL);

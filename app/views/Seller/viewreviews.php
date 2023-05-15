@@ -10,25 +10,51 @@
 <body>
     <?php $this->view("/Includes/header")?>
 
-<section>
-  <div class="container my-5 py-5 text-dark">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-6">
-        <div class="card">
-          <div class="card-body p-4">
-            <div class="d-flex flex-start w-100">
-              
-              <div class="w-100">
+
+            
                 <?php foreach($data as $message){?>
-              <form action="" method="post">
-                                
-                <div class="form-outline">
-                  <p><?= $message->message?></p>
-                </div>
+
+<section>
+<div class="container text-dark">
+    <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-6">
+        <div class="card-invisible">
+        <div class="card-body p-4">
+            <div class="d-flex flex-start w-100">
+            
+            <div class="w-100">
+
+            <form action="" method="post">
+                <section">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="card text-dark">
+                        <div class="card-body p-4">
+                        <h4 class="mb-0">Comments</h4>                 
                 
-              </form> 
-              <?php }?>
-              </div>
+                            </br>
+
+                                <h6 class="fw-bold mb-1">By user <?= $message->user_id ?></h6>
+                                <div class="d-flex align-items-center mb-3">
+                                <p class="mb-0">
+                                    <?= $message->date?>
+                                </p>
+                                
+                                </div>
+                                <p class="mb-0">
+                                <?= $message->message?>
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+                </section>      
+
+              </form> </div>
             </div>
           </div>
         </div>
@@ -36,6 +62,9 @@
     </div>
   </div>
 </section>
+              <?php }?>
+              
+
    
 <?php $this->view('/Includes/footer') ?>    
 
