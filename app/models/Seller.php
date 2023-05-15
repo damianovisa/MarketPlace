@@ -11,7 +11,7 @@ class Seller extends \app\core\Model{
 		return $STMT->fetch();
 	}
 
-	public function getSellerId($seller_id){
+	public function getCommentBySeller($seller_id){
 		$SQL = "SELECT * FROM comment WHERE seller_id=:seller_id";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute(['seller_id' => $seller_id]);
@@ -24,5 +24,7 @@ class Seller extends \app\core\Model{
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash]);
 	}
+
+
 
 }

@@ -79,4 +79,10 @@ class Seller extends \app\core\Controller{
 		header('location:/Seller/viewProducts');
 	}
 
+	public function viewReviews(){
+		$seller = new \app\models\Seller();
+		$message = $seller->getCommentBySeller($_SESSION['seller_id']);
+		
+		$this->view('/Seller/viewreviews',$message);
+	}
 }

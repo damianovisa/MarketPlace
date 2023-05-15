@@ -10,6 +10,14 @@ class User extends \app\core\Model{
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\User');
 		return $STMT->fetch();
 	}
+    
+	public function getUserById($user_id){
+		$SQL = "SELECT * FROM user WHERE user_id=:user_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['user_id'=>$user_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\User');
+		return $STMT->fetch();
+	}
 
     public function insertUser(){
 		$SQL = "INSERT INTO user(email,fname,lname,password_hash) VALUES (:email,:fname,:lname,:password_hash)";
