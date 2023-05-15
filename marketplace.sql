@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2023 at 06:14 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: May 15, 2023 at 11:51 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `marketplace`
 --
-CREATE DATABASE IF NOT EXISTS `marketplace` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `marketplace`;
+
 -- --------------------------------------------------------
 
 --
@@ -34,16 +33,19 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `cart`
+-- Table structure for table `comment`
 --
 
-INSERT INTO `cart` (`cart_id`, `product_id`, `user_id`) VALUES
-(42, 21, 5),
-(43, 18, 5),
-(44, 15, 5),
-(45, 20, 6),
-(46, 22, 5);
+CREATE TABLE `comment` (
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `seller_id` int(11) NOT NULL,
+  `message` varchar(250) NOT NULL,
+  `date` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -62,21 +64,6 @@ CREATE TABLE `product` (
   `qty` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`product_id`, `seller_id`, `name`, `manufacturer`, `description`, `price`, `image`, `qty`) VALUES
-(13, 3, 'Gaming Headset', 'SteelSeries', 'SteelSeries Arctis Pro PC Gaming Headset', 229.99, 'steelseriesHeadset.jpg', 0),
-(15, 4, 'Playstation 5', 'Sony', 'Playstation 5 Console -Digital Edition with Dual Sense Controller', 499.99, 'ps5Digital.webp', 0),
-(16, 4, 'Xbox Series X', 'Microsoft', 'Xbox Series X 1TB Console', 599.99, 'xboxSeriesX.png', 0),
-(17, 3, 'Samsung TV', 'Samsung', 'Samsung QLED Display 4K UltraHD Smart TV 50\" - Q60B', 699.99, 'samsungTv.webp', 0),
-(18, 3, 'Gaming Chair', 'Secret Lab', 'Secretlab TITAN XL 2020 Series Gaming Chair', 539.99, 'secretLabChair.jpg', 0),
-(19, 3, 'Mouse', 'Razer', 'Razer DeathAdder V2 Gaming Mouse', 49.99, 'razerMouse.webp', 0),
-(20, 5, 'Microphone', 'Yeti', 'Yeti Microphone - Black', 499.99, 'micYeti.jpg', 0),
-(21, 3, 'Modern Warfare II', 'Activision', 'Call Of Duty Modern Warfare II - PS5', 89.99, 'mw2.jpg', 0),
-(22, 3, 'Nintendo Switch', 'Nintendo', 'Nintendo Switch Console with Neon Red/Blue Joy-Con ', 400.59, 'switch.jpg', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -91,15 +78,6 @@ CREATE TABLE `seller` (
   `password_hash` varchar(72) NOT NULL,
   `profile_pic` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `seller`
---
-
-INSERT INTO `seller` (`seller_id`, `email`, `fname`, `lname`, `password_hash`, `profile_pic`) VALUES
-(3, 'batman@gmail.com', 'Pruce', 'Blayne', '$2y$10$kgqjZ4rSVNFoLidBJnOL2upp49Razq6VqdJhuwLcUR6k8LbnqoHSC', ''),
-(4, 'sel@gmail.com', 'Sel', 'Er', '$2y$10$PhuOLrldh/EcEQyLqNAlBuByAYNJZZb2HdBy2sTMZdyeS8wENbbSS', ''),
-(5, 'capece@gmail.com', 'Enrique', 'Capece', '$2y$10$znKNpUoT8sJX89c4PCw2JOmJnaPkRD2WM22kTXAxysmCkCF/I2Sta', '');
 
 -- --------------------------------------------------------
 
@@ -117,14 +95,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`user_id`, `email`, `fname`, `lname`, `password_hash`, `profile_pic`) VALUES
-(5, 'dami@gmail.com', 'Dami', 'Visa', '$2y$10$/9Gy7nvPvz31QQsSZxoplu2HuARcDx7q3q40ZDPokRjybcUGzpuQ2', ''),
-(6, 'tim@hotmail.com', 'Timmy', 'Turner', '$2y$10$xKN8JWjuKbVBgaSez1SWCerO2/jPzRlIjrD3XG3s.LD6M6iIYZdYu', '');
-
---
 -- Indexes for dumped tables
 --
 
@@ -135,6 +105,14 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
   ADD KEY `cart_productId_fk` (`product_id`),
   ADD KEY `cart_userId_fk` (`user_id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `cmt_userID` (`user_id`),
+  ADD KEY `cmt_sellerID` (`seller_id`);
 
 --
 -- Indexes for table `product`
@@ -163,25 +141,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
-  MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `seller_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -193,6 +177,13 @@ ALTER TABLE `user`
 ALTER TABLE `cart`
   ADD CONSTRAINT `cart_productId_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `cart_userId_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `cmt_sellerID` FOREIGN KEY (`seller_id`) REFERENCES `seller` (`seller_id`),
+  ADD CONSTRAINT `cmt_userID` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
 
 --
 -- Constraints for table `product`
