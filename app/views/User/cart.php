@@ -60,7 +60,7 @@
                       <h6 class="text-muted"><?=$item->name?></h6>
                       <h6 class="text-black mb-0"><?=$item->description?></h6>
                     </div>
-                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <!-- <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                       <button class="btn btn-link px-2"
                         onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                         <i class="bi bi-dash"></i>
@@ -73,7 +73,7 @@
                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                         <i class="bi bi-plus"></i>
                       </button>
-                    </div>
+                    </div> -->
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                       <h6 class="mb-0" id="price">$ <?=$item->price?></h6>
                     </div>
@@ -124,7 +124,7 @@
                     </select>
                   </div>
 
-                  <h5 class="text-uppercase mb-3">Give code</h5>
+                  <!-- <h5 class="text-uppercase mb-3">Give code</h5>
 
                   <div class="mb-5">
                     <div class="form-outline">
@@ -132,7 +132,7 @@
                       <label class="form-label" for="form3Examplea2">Enter your code</label>
                       <input type="submit" class="btn btn-success float-end" value="Apply">
                     </div>
-                  </div>
+                  </div> -->
 
                   <hr class="my-4">
 

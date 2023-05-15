@@ -40,10 +40,10 @@ class Product extends \app\core\Model{
 		$STMT->execute(['product_id'=>$this->product_id]);
 	}
 
-	public function insertProductDetails(){
-		$SQL = "INSERT INTO productDetails(seller_id,name,manufacturer,description,price,image) VALUES (:seller_id,:name,:manufacturer,:description,:price,:image)";
-		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['seller_id'=>$this->seller_id,'name'=>$this->name,'manufacturer'=>$this->manufacturer,'description'=>$this->description,'price'=>$this->price,'image'=>$this->image]);
-	}
+	// public function insertProductDetails(){
+	// 	$SQL = "INSERT INTO productDetails(seller_id,name,manufacturer,description,price,image) VALUES (:seller_id,:name,:manufacturer,:description,:price,:image)";
+	// 	$STMT = self::$_connection->prepare($SQL);
+	// 	$STMT->execute(['seller_id'=>$this->seller_id,'name'=>$this->name,'manufacturer'=>$this->manufacturer,'description'=>$this->description,'price'=>$this->price,'image'=>$this->image]);
+	// }
 	
 }

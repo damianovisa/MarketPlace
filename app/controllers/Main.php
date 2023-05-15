@@ -13,7 +13,21 @@ class Main extends \app\core\Controller{
 		header('location:/User/login');
 	}
 
-	public function reviews(){
+	public function reviews($seller_id){
+		$user = new \app\models\User();
+		$seller = new \app\models\Seller();
+
+
+		if(isset($_POST['action'])){			
+			if(isset($_POST['message'])){
+			
+			$user->user_id = $_SESSION['user_id'];
+			$user->message = $_POST['message'];
+			$user->seller_id = $seller_id;
+
+			$user->insertReview();
+			}
+		}
 		$this->view('/Main/reviews');
 	}
 
@@ -21,7 +35,7 @@ class Main extends \app\core\Controller{
 		$product = new \app\models\Product();
 		$product->product_id = $product_id;
 		$products = $product->getByProduct($product_id);
-		$product->insertProductDetails();
+		// $product->insertProductDetails();
 		$this->view('/Main/productDetails',$products); 
 	}
 }

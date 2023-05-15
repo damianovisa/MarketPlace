@@ -19,17 +19,17 @@
             <div class="d-flex flex-start w-100">
               
               <div class="w-100">
+              <form action="" method="post">
                 <h5>Add a comment</h5>
                 
                 <div class="form-outline">
-                  <textarea class="form-control" id="textAreaExample" rows="5"></textarea>
+                  <textarea class="form-control" id="textAreaExample" rows="12" name="message"></textarea>
                  
                 </div>
                 <div class="d-flex justify-content-between mt-3">
-                  <button type="button" class="btn btn-success">
-                    Send <i class="fas fa-long-arrow-alt-right ms-1"></i>
-                  </button>
+                  <input type="submit" class="btn btn-success" value="Send" name="action">
                 </div>
+              </form> 
               </div>
             </div>
           </div>

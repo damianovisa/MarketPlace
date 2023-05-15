@@ -16,4 +16,12 @@ class User extends \app\core\Model{
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash]);
 	}
+
+    public function insertReview(){
+		$SQL = "INSERT INTO comment(user_id,seller_id,message) VALUES (:user_id,:seller_id,:message)";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['user_id'=>$this->user_id,'seller_id'=>$this->seller_id,'message'=>$this->message]);
+	}
+
+
 }

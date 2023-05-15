@@ -17,7 +17,7 @@
     <div class="container">
 
         <div class="row">
-            <?php foreach ($data as $item){?>
+            <?php ?>
             <div class="col-sm-3 mb-5">
                 <div class="card shadow-sm h-100" >
                     <div>
@@ -51,7 +51,7 @@
                 </div>
             </div>
                      
-            <?php }?>
+            <?php ?>
         </div>
 </div>
 

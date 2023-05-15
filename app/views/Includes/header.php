@@ -25,7 +25,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand mb-0 h1" href="/Main/index"><?=_("Dams")?></a>
+      <a class="navbar-brand mb-0 h1" href="/Main/index"><?=_("Marketplace")?></a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/Main/index"><?=_("Home")?></a>
@@ -55,15 +55,15 @@
           <?php }?>
       </ul>
 
-      <form class="d-flex" role="search">
+      <!-- <form class="d-flex" role="search">
       
       <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         
-      </form>
+      </form> -->
 
       <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])){?>
-        <a class="btn btn-primary m-2" href="#"><?=_("Profile")?></a>
+        
       <?php }else{?>
         <a class="btn btn-primary m-2" href="/User/Login"><?=_("Sign in")?></a>
       <?php }?>

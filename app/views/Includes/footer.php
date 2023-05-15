@@ -43,7 +43,7 @@
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     <?=_('&copy')?> <?=date("Y")?> <?=_("Copyright:")?>
-    <a class="text-white" href="/Main/index"><?=_("Dams")?></a>
+    <a class="text-white" href="/Main/index"><?=_("Marketplace")?></a>
   </div>
   <!-- Copyright -->
 </footer>
