@@ -3,8 +3,11 @@ namespace app\models;
 
 class Product extends \app\core\Model{
 
-    public function getAllProducts(){
+    public function getAllProducts($params){
 		$SQL = "SELECT * FROM product";
+		if(isset($params['search'])){
+			$SQL .= " where description like '%$params[search]%' ";
+		}
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');

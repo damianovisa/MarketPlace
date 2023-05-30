@@ -13,12 +13,6 @@
 </head>
 <body>
 
-<?php 
-    // $cart = new \app\models\Cart();
-    // $cart = $cart->getAll($cart->cart_id);
-    // $cartItems = count($cart);
-?>
-
 <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark" >
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +76,13 @@
           <i class="bi bi-bag-fill"></i>
       </a>
         
-      <?php }?>
+      <?php } else {?>
+        <form method="get" action="" class="d-flex">
+          <input class="form-control me-1" type="text" placeholder="Search" name="search" >
+          <input class="btn btn-outline-success" type="submit" value="Search">
+        </form>
+
+        <?php }?>
 
     </div>
   </div>
