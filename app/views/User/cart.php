@@ -51,9 +51,11 @@
 
                   <div class="row mb-4 d-flex justify-content-between align-items-center">
                     <div class="col-md-2 col-lg-2 col-xl-2">
+                    <a href="/Main/productDetails/<?=$item->product_id?>">
                       <img
                         src="../images/<?=$item->image?>"
-                        class="img-fluid rounded-3">
+                        class="img-fluid rounded-3"> 
+                    </a>
                         <h6 class="text-muted mt-2">By <?=$item->manufacturer ?></h6>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
