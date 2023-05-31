@@ -27,7 +27,7 @@
                 <div class="card shadow-sm h-100" >
                     <div>
                         <div class=""> 
-                        <img src="../images/<?php echo $item->image?>" class="card-img p-3" width="100%" height="250px"/>
+                        <img src="../images/<?php echo $item->image?>" class="card-img p-3" width="100%" height="250px" style="object-fit:contain"/>
                         <div class="card-body">
                         <div class="text-center">
                         <h5 class="card-title"><?php echo $item->name ?></h5>

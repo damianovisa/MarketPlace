@@ -19,6 +19,14 @@ class Seller extends \app\core\Model{
         return $STMT->fetchAll();
 	}
 
+	public function getSellerByProduct($product_id){
+		$SQL = "SELECT seller_id FROM product WHERE product_id=:product_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['product_id'=>$product_id]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Seller');
+		return $STMT->fetch();
+	}
+
 	// public function getCommentByUserId($user_id){
 	// 	$SQL = "SELECT * FROM comment inner join user on user.user_id=comment.user_id where user_id=:user_id";
 	// 	$STMT = self::$_connection->prepare($SQL);

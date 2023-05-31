@@ -6,7 +6,7 @@ class Product extends \app\core\Model{
     public function getAllProducts($params){
 		$SQL = "SELECT * FROM product";
 		if(isset($params['search'])){
-			$SQL .= " where description like '%$params[search]%' ";
+			$SQL .= " where description like '%$params[search]%' or name like '%$params[search]%'";
 		}
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute();
@@ -15,9 +15,9 @@ class Product extends \app\core\Model{
 	}
 
 	public function insertProduct(){
-		$SQL = "INSERT INTO product(seller_id,name,manufacturer,description,price,image) VALUES (:seller_id,:name,:manufacturer,:description,:price,:image)";
+		$SQL = "INSERT INTO product(seller_id,name,manufacturer,description,price,qty,image) VALUES (:seller_id,:name,:manufacturer,:description,:price,:qty,:image)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['seller_id'=>$this->seller_id,'name'=>$this->name,'manufacturer'=>$this->manufacturer,'description'=>$this->description,'price'=>$this->price,'image'=>$this->image]);
+		$STMT->execute(['seller_id'=>$this->seller_id,'name'=>$this->name,'manufacturer'=>$this->manufacturer,'description'=>$this->description,'price'=>$this->price,'qty'=>$this->qty,'image'=>$this->image]);
 	}
 
 	public function getBySeller($seller_id){
@@ -28,12 +28,11 @@ class Product extends \app\core\Model{
         return $STMT->fetchAll();
 	}
 
-	public function getByProduct($product_id)
-    {
+	public function getByProduct($product_id){
         $SQL = "SELECT * FROM product WHERE product_id=:product_id";
         $STMT = self::$_connection->prepare($SQL);
         $STMT->execute(['product_id' => $product_id]);
-        $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Product');
+        $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\User');
         return $STMT->fetch();
     }
 

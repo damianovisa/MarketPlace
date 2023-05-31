@@ -4,7 +4,7 @@ namespace app\controllers;
 class Main extends \app\core\Controller{
 	public function index(){
 		$product = new \app\models\Product();
-		$products = $product->getAllProducts($_GET);
+		$products = $product->getAllProducts($_POST	);
 		$this->view('/Main/index',['products'=>$products]); 
 	}
 	
@@ -34,9 +34,7 @@ class Main extends \app\core\Controller{
 
 	public function productDetails($product_id){
 		$product = new \app\models\Product();
-		$product->product_id = $product_id;
 		$products = $product->getByProduct($product_id);
-		// $product->insertProductDetails();
 		$this->view('/Main/productDetails',$products); 
 	}
 }

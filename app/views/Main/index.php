@@ -15,9 +15,9 @@
     </div>
 
     <div class="container">
-        <?php if(isset($_GET['search'])){
-                if($_GET['search'] != ""){?>
-                <p class="text mb-4">Results for: <?=$_GET['search'] ?></p>
+        <?php if(isset($_POST['search'])){
+                if($_POST['search'] != ""){?>
+                <p class="text mb-4">Results for: <?=$_POST['search'] ?></p>
         <?php }
         
                 }else{?>
@@ -28,9 +28,9 @@
                 <div class="card shadow-sm h-100" >
                     <div>
                         <div class=""> 
-                        <!-- <a href="/Main/productDetails/<?=$item->product_id?>"> -->
-                        <img src="../images/<?php echo $item->image?>" class="card-img p-3" width="100%" height="225px"/>
-                    <!-- </a> -->
+                        <a href="/Main/productDetails/<?=$item->product_id?>">
+                            <img src="../images/<?php echo $item->image?>" class="card-img p-2" width="100%" style="object-fit:contain" height="225px"/>
+                        </a>
                         <div class="card-body">
                         <div class="text-center">
                         <h5 class="card-title"><?php echo $item->name ?></h5>

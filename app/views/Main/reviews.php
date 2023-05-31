@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../resources/style.css">
 </head>
 <body>
-    <?php $this->view("/Includes/header")?>
+  <?php $this->view("/Includes/header")?>
 
-    <section>
+<section>
   <div class="container my-5 py-5 text-dark">
     <div class="row d-flex justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-6">
@@ -20,7 +20,7 @@
               
               <div class="w-100">
               <form action="" method="post">
-                <h5>Add a comment</h5>
+                <h5><?=_("Add a comment")?></h5>
                 
                 <div class="form-outline">
                   <textarea class="form-control" id="textAreaExample" rows="12" name="message"></textarea>

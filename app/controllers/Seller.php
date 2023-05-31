@@ -54,6 +54,7 @@ class Seller extends \app\core\Controller{
 			$product->manufacturer = $_POST['manufacturer'];
 			$product->description = $_POST['description'];
 			$product->price = $_POST['price'];
+			$product->qty = $_POST['qty'];
 			$product->image =$_POST['image'];
 			$_SESSION['product_id'] = $product->product_id;
 			$product->insertProduct();

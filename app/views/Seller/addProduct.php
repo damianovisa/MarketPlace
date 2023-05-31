@@ -71,7 +71,6 @@
                         <input type="text" name="name" minlength="1" id="validationCustomUsername" class="form-control form-control-lg"
                         placeholder="Enter product name" aria-describedby="inputGroupPrepend" required/>
                         <div class="invalid-feedback">
-                            Must enter a product name
                         </div>
                     </div>
                     <div class="form-outline mb-4 has-validation" >
@@ -79,26 +78,31 @@
                         <input type="text" name="manufacturer" minlength="1" id="validationCustomUsername" class="form-control form-control-lg"
                         placeholder="Enter manufacturer" aria-describedby="inputGroupPrepend" required/>
                         <div class="invalid-feedback">
-                            Must enter a manufacturer
                         </div>
                     </div>
-                    <!-- Email input -->
+
                     <div class="form-outline mb-4 has-validation" >
                         <label class="form-label" for="validationCustomUsername" ><?=_("Description")?></label>
                         <input type="text" name="description" id="validationCustomUsername" class="form-control form-control-lg"
                         placeholder="Enter description" aria-describedby="inputGroupPrepend" required/>
                         <div class="invalid-feedback">
-                            Must enter a description
                         </div>
                     </div>
 
-                    <!-- Password input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="validationCustom03"><?=_("Price")?></label>
-                        <input type="text" minlength="1" id="validationCustom03" class="form-control form-control-lg"
-                        placeholder="Price $" name="price" required/>
+                        <input type="number" step="any" minlength="1" id="validationCustom03" class="form-control form-control-lg"
+                        placeholder="Enter price" name="price" required/>
                         <div class="invalid-feedback">
-                            Product must have a price
+                        </div>  
+                    </div>
+
+                    <div class="form-outline mb-3">
+                        <label class="form-label" for="validationCustom03"><?=_("Quantity")?></label>
+                        <input type="number" minlength="1" min="1" id="validationCustom03" class="form-control form-control-lg"
+                        placeholder="Enter quantity" name="qty" required/>
+                        <div class="invalid-feedback">
+
                         </div>  
                     </div>
 
@@ -126,7 +130,7 @@
 
 <script src="/resources/validation.js"></script>
 
-<?= $this->view('/Includes/footer')?>
+<?php $this->view('/Includes/footer') ?>   
 
 </body>
 </html>
