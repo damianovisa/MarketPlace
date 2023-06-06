@@ -7,6 +7,19 @@ class Main extends \app\core\Controller{
 		$products = $product->getAllProducts($_GET);
 		$this->view('/Main/index',['products'=>$products]); 
 	}
+
+	public function profile(){
+		$user = new \app\models\User();
+		$seller = new \app\models\Seller();
+
+		if(isset($_SESSION['user_id'])){
+		$user = $user->getUserById($_SESSION['user_id']);
+		}else if(isset($_SESSION['seller_id'])){
+		$seller = $seller->getSellerById($_SESSION['seller_id']);
+		}
+
+		$this->view('/Main/profile',['user'=>$user,'seller'=>$seller]);
+	}
 	
 	public function logout(){
 		session_destroy();
