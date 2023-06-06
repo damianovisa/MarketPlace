@@ -22,10 +22,14 @@
                         </div>
                         <p class="lead"><?php echo $data->description ?></p>
                         <div class="d-flex">
-                            <?php if(isset($_SESSION['user_id'])) {?>
-                                <span><a href="/User/addToCart/<?=$data->product_id ?>" class="btn btn-outline-dark flex-shrink-0"><?=_('Add to cart')?></a> <a href="/Main/reviews/<?= $data->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a ></span>
-                            <?php }else{?>
-                                <span><a href="#" class="btn btn-outline-dark flex-shrink-0 disabled"><?=_('Add to cart')?></a></span>
+                        <?php if(isset($_SESSION['user_id'])) {?>
+                                <?php if($data->qty <= 0){?>
+                                    <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a><a href="/Main/reviews/<?= $data->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a >
+                                    <?php }else{?>
+                                <span><a href="/User/addToCart/<?=$data->product_id ?>" class="btn btn-outline-dark flex-shrink-0"><?=_('Add to cart')?></a> <a href="/Main/reviews/<?= $data->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a >
+                                    <?php }?>
+                                <?php }else{?>
+                                <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $data->price ?></span>
                             <?php }?>
                         </div>
                     </div>
