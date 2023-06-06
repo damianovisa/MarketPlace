@@ -28,9 +28,14 @@
             
                 <div class="card shadow-sm h-100" >
                 
-                    <!-- <div class="card-header">
-                        By <?=$item->manufacturer;?>
-                    </div>       -->
+                <?php if(isset($_SESSION['user_id'])){?>
+                    <?php if($item->qty <= 0){?>
+                             <div class="card-header text-danger">
+                                  Out of stock!
+                              </div>
+                        <?php }?>
+                    <?php }?>
+                    
                     <div>
                         <div class=""> 
                         <a href="/Main/productDetails/<?=$item->product_id?>">
@@ -52,7 +57,7 @@
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
                             <?php if(isset($_SESSION['user_id'])) {?>
-                                <?php if($item->qty <= 0){?>
+                                <?php if($item->qty <= 0){?>     
                                     <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a><a href="/Main/reviews/<?= $item->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a ></span><span>$<?php echo $item->price ?></span>
                                     <?php }else{?>
                                 <span><a href="/User/addToCart/<?=$item->product_id ?>" class="btn btn-outline-dark flex-shrink-0"><?=_('Add to cart')?></a> <a href="/Main/reviews/<?= $item->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a ></span><span>$<?php echo $item->price ?></span>

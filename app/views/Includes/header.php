@@ -13,6 +13,12 @@
 </head>
 <body>
 
+<?php $cart = new \app\models\Cart();
+      $carts = $cart->getAllItems();
+      $cartItems = count($carts);
+
+      ?>
+
 <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark" >
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,13 +55,6 @@
           <?php }?>
       </ul>
 
-      <!-- <form class="d-flex" role="search">
-      
-      <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        
-      </form> -->
-
       <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])){?>
         
       <?php }else{?>
@@ -64,9 +63,9 @@
 
       <?php if(isset($_SESSION['user_id'])){?>
       <a class="btn btn-outline-light btn-floating m-1" id="cartBtn" href="/User/cart" role="button">
-        <i class="bi bi-cart-fill pe-2"></i>
-        <span class='badge badge-warning' id='lblCartCount' name="cartNb" ></span>
-        <!-- <?= $cartItems?> -->
+        <i class="bi bi-cart-fill "></i>
+        <span class='badge' id='lblCartCount' name="cartNb" ><?= $cartItems?></span>
+        
       </a>
       <?php } if(isset($_SESSION['seller_id'])) {?>
         <a class="btn btn-outline-light btn-floating p-2 m-2" id="cartBtn" href="/Seller/viewReviews" role="button">
