@@ -76,7 +76,7 @@
           <i class="bi bi-bag-fill"></i>
       </a>
       <?php } else {?>
-        <form method="post" action="" class="d-flex">
+        <form method="get" action="" class="d-flex">
           <input class="form-control me-1" type="text" placeholder="Search" name="search">
           <input class="btn btn-outline-success" type="submit" value="Search">
         </form>

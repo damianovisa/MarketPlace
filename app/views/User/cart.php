@@ -59,8 +59,7 @@
                         <h6 class="text-muted mt-2">By <?=$item->manufacturer ?></h6>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
-                      <h6 class="text-muted"><?=$item->name?></h6>
-                      <h6 class="text-black mb-0"><?=$item->description?></h6>
+                      <h6 class="text-black mb-0"><?=$item->name?></h6>
                     </div>
                     <!-- <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                       <button class="btn btn-link px-2"
@@ -80,7 +79,7 @@
                       <h6 class="mb-0" id="price">$ <?=$item->price?></h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a href="/User/deleteFromCart/<?=$item->cart_id?>" class="text-muted"><i class="bi bi-x-lg"></i></a>
+                      <a href="/User/deleteFromCart/<?=$item->cart_id?> / <?=$item->product_id?>" class="text-muted"><i class="bi bi-x-lg"></i></a>
                     </div>
                   </div>
 

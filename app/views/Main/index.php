@@ -25,7 +25,12 @@
         <div class="row">
             <?php foreach ($data['products'] as $item){?>
             <div class="col-sm-3 mb-5">
+            
                 <div class="card shadow-sm h-100" >
+                
+                    <!-- <div class="card-header">
+                        By <?=$item->manufacturer;?>
+                    </div>       -->
                     <div>
                         <div class=""> 
                         <a href="/Main/productDetails/<?=$item->product_id?>">
@@ -33,21 +38,21 @@
                         </a>
                         <div class="card-body">
                         <div class="text-center">
-                        <h5 class="card-title"><?php echo $item->name ?></h5>
+                        <h5 class="card-title"><?php if(strlen($item->name) > 22){?>
+                                <?=substr($item->name,0,20)."...";?>
+                                
+                            <?php }else{?>
+                                <?=$item->name?>
+                            <?php }?></h5>
                         <p class="text-muted mb-4">by <?php echo $item->manufacturer ?></p>
                         </div>
                         <div>
-                            <?php if(strlen($item->description) > 28){?>
-                                <?=substr($item->description,0,31)."...";?>
-                                
-                            <?php }else{?>
-                                <?=$item->description?>
-                            <?php }?>
+                            
                             
                         </div>
                         <div class="d-flex justify-content-between total font-weight-bold mt-4">
                             <?php if(isset($_SESSION['user_id'])) {?>
-                                <span><a href="/User/addToCart/<?=$item->product_id ?>" class="btn btn-success"><?=_('Add to cart')?></a> <a href="/Main/reviews/<?= $item->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a ></span><span>$<?php echo $item->price ?></span>
+                                <span><a href="/User/addToCart/<?=$item->product_id ?>" class="btn btn-outline-dark flex-shrink-0"><?=_('Add to cart')?></a> <a href="/Main/reviews/<?= $item->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a ></span><span>$<?php echo $item->price ?></span>
                             <?php }else{?>
                                 <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $item->price ?></span>
                             <?php }?>
@@ -56,6 +61,7 @@
                     </div>
                     </div>
                     </div>
+                    
                 </div>
             </div>
                      

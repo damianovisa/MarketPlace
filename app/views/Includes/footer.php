@@ -45,7 +45,7 @@
     <?=_('&copy')?> <?=date("Y")?> <?=_("Copyright:")?>
     <a class="text-white" href="/Main/index"><?=_("Marketplace")?></a>
   </div>
-  <!-- Copyright -->
+  
 </footer>
 
 </body>

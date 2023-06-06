@@ -54,17 +54,40 @@ class User extends \app\core\Controller{
 	
 	public function addToCart($product_id){
 		$cart = new \app\models\Cart();
+		$products = new \app\models\Product();
 		 
 		$cart->product_id = $product_id;
 		$cart->user_id = $_SESSION['user_id'];
+
 		$cart->insertToCart();
+		
+		$product = $products->getByProduct($product_id);
+		$products->product_id = $product_id;
+		$products->qty = $product->qty;
+
+		--$product->qty;
+		
+		$products->updateQTY($product->qty);	
 
 		header('location:/Main/index');
 	}
 
-	public function deleteFromCart($cart_id){
+	public function deleteFromCart($cart_id,$product_id){
 		$cart = new \app\models\Cart();
+		$products = new \app\models\Product();
+
+		
+	
+		$product = $products->getByProduct($product_id);
+		$products->product_id = $product_id;
+		$products->qty = $product->qty;
+
+
+		++$product->qty;
+		$products->updateQTY($product->qty);
+	
 		$carts = $cart->delete($cart_id,$_SESSION['user_id']);
+		
 		header('location:/User/cart');
 	}
 
