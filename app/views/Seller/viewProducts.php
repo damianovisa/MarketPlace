@@ -30,7 +30,14 @@
                         <img src="../images/<?php echo $item->image?>" class="card-img p-3" width="100%" height="250px" style="object-fit:contain"/>
                         <div class="card-body">
                         <div class="text-center">
-                        <h5 class="card-title"><?php echo $item->name ?></h5>
+                        <h5 class="card-title">
+                        <?php if(strlen($item->name) > 28){?>
+                                <?=substr($item->name,0,24)."...";?>
+                                
+                            <?php }else{?>
+                                <?=$item->name?>
+                            <?php }?>
+                        </h5>
                         <p class="text-muted mb-4">by <?php echo $item->manufacturer ?></p>
                         </div>
                         <div>
