@@ -15,11 +15,11 @@
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/images/<?php echo $data->image?>"/></div>
                     <div class="col-md-6">
-                    <?php if(isset($_SESSION['user_id'])) {?>
-                        <?php if($data->qty <= 0){?>
-                        <p class="lead text-danger">Out of stock!</p>
-                        <?php }?>
+                    
+                    <?php if($data->qty <= 0){?>
+                    <p class="lead text-danger">Out of stock!</p>
                     <?php }?>
+                    
                         <div class="small mb-1"><?php echo $data->manufacturer ?> <div class="small mb-1">Qty: <?php echo $data->qty ?> </div> </div>
                         <h1 class="display-5 fw-bolder"><?php echo $data->name ?></h1>
                         <div class="fs-5 mb-5">
@@ -34,7 +34,7 @@
                                 <span><a href="/User/addToCart/<?=$data->product_id ?>" class="btn btn-outline-dark flex-shrink-0"><?=_('Add to cart')?></a> <a href="/Main/reviews/<?= $data->seller_id ?>" class="btn btn-outline-warning p-2"><i class="bi bi-pencil-fill"></i></a >
                                     <?php }?>
                                 <?php }else{?>
-                                <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span><span>$<?php echo $data->price ?></span>
+                                <span><a href="#" class="btn btn-light disabled"><?=_('Add to cart')?></a></span>
                             <?php }?>
                         </div>
                     </div>

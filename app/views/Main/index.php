@@ -28,12 +28,10 @@
             
                 <div class="card shadow-sm h-100" >
                 
-                <?php if(isset($_SESSION['user_id'])){?>
                     <?php if($item->qty <= 0){?>
                              <div class="card-header text-danger">
                                   Out of stock!
                               </div>
-                        <?php }?>
                     <?php }?>
                     
                     <div>
