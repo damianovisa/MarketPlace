@@ -15,7 +15,11 @@
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/images/<?php echo $data->image?>"/></div>
                     <div class="col-md-6">
+                    <?php if(isset($_SESSION['user_id'])) {?>
+                        <?php if($data->qty <= 0){?>
                         <p class="lead text-danger">Out of stock!</p>
+                        <?php }?>
+                    <?php }?>
                         <div class="small mb-1"><?php echo $data->manufacturer ?> <div class="small mb-1">Qty: <?php echo $data->qty ?> </div> </div>
                         <h1 class="display-5 fw-bolder"><?php echo $data->name ?></h1>
                         <div class="fs-5 mb-5">
