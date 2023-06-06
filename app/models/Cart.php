@@ -19,10 +19,10 @@ class Cart extends \app\core\Model{
         return $STMT->fetchAll();
     }
 
-	public function getAllItems(){
-		$SQL = "SELECT * FROM cart";
+	public function getAllByUser($user_id){
+		$SQL = "SELECT * FROM cart where user_id=:user_id";
         $STMT = self::$_connection->prepare($SQL);
-        $STMT->execute();
+        $STMT->execute(['user_id'=>$this->user_id]);
         $STMT->setFetchMode(\PDO::FETCH_CLASS, 'app\models\Cart');
         return $STMT->fetchAll();
 	}

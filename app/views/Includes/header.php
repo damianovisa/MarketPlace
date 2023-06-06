@@ -13,10 +13,10 @@
 </head>
 <body>
 
-<?php $cart = new \app\models\Cart();
-      $carts = $cart->getAllItems();
-      $cartItems = count($carts);
-
+<?php
+      
+      
+  
       ?>
 
 <nav class="navbar navbar-expand-lg bg-light navbar-dark bg-dark" >
@@ -61,11 +61,18 @@
         <a class="btn btn-primary m-2" href="/User/Login"><?=_("Sign in")?></a>
       <?php }?>
 
-      <?php if(isset($_SESSION['user_id'])){?>
+      <?php if(isset($_SESSION['user_id'])){
+        $user_id = $_SESSION['user_id'];
+        $cart = new \app\models\Cart();
+        $cart->user_id = $user_id;
+        $carts = $cart->getAllByUser($user_id);
+        $cartItems = count($carts);?>
+
       <a class="btn btn-outline-light btn-floating m-1" id="cartBtn" href="/User/cart" role="button">
         <i class="bi bi-cart-fill "></i>
+        <?php if(isset($_SESSION['user_id'])){?>
         <span class='badge' id='lblCartCount' name="cartNb" ><?= $cartItems?></span>
-        
+        <?php }?>
       </a>
       <?php } if(isset($_SESSION['seller_id'])) {?>
         <a class="btn btn-outline-light btn-floating p-2 m-2" id="cartBtn" href="/Seller/viewReviews" role="button">
