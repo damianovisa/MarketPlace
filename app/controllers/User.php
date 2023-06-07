@@ -33,6 +33,7 @@ class User extends \app\core\Controller{
 					$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$user->fname = $_POST['fname'];
 					$user->lname = $_POST['lname'];
+					$user->profile_pic = "pfp.png";
 					$user->insertUser();
 					header('location:/User/login');
 				}else{

@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="/resources/style.css">
 </head>
 <body>
-<?php $this->view("/Includes/header");?>
+<?php $this->view("/Includes/header");
 
-<?php 
 if(isset($_SESSION['user_id'])){
     $info = $data['user'];
 }else{
@@ -82,7 +81,7 @@ if(isset($_SESSION['user_id'])){?>
             <form action="" method="post">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <?php if(!empty($info->profile_pic)){?>
-                <img class="rounded-circle mt-5" width="150px" src="<?= $info->profile_pic?>"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
+                <img class="rounded-circle mt-5" width="150px" height="150px" src="/images/<?= $info->profile_pic?>"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
                 <?php }else{?>
                 <img class="rounded-circle mt-5 mb-3" width="150px" src="/images/pfp.png"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
                 <?php }?>
@@ -94,11 +93,11 @@ if(isset($_SESSION['user_id'])){?>
                     <h4 class="text-right">Profile Settings</h4>
                 </div>                
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">First name</label><input type="text" class="form-control" value="<?= $info->fname?>"></div>
-                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="<?= $info->lname?>"></div>
+                    <div class="col-md-6"><label class="labels">First name</label><input type="text" name="fname" class="form-control" value="<?= $info->fname?>"></div>
+                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" name="lname" class="form-control" value="<?= $info->lname?>"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" value="<?= $info->email?>"></div>
+                    <div class="col-md-12"><label class="labels">Email Address</label><input type="text" name="email" class="form-control" value="<?= $info->email?>"></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>

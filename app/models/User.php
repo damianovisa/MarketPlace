@@ -20,9 +20,9 @@ class User extends \app\core\Model{
 	}
 
     public function insertUser(){
-		$SQL = "INSERT INTO user(email,fname,lname,password_hash) VALUES (:email,:fname,:lname,:password_hash)";
+		$SQL = "INSERT INTO user(email,fname,lname,password_hash,profile_pic) VALUES (:email,:fname,:lname,:password_hash,:profile_pic)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash]);
+		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash,'profile_pic'=>$this->profile_pic]);
 	}
 
     public function insertReview(){

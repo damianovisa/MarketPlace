@@ -44,15 +44,15 @@ class Seller extends \app\core\Model{
 	// }
 
     public function insertSeller(){
-		$SQL = "INSERT INTO seller(email,fname,lname,password_hash) VALUES (:email,:fname,:lname,:password_hash)";
+		$SQL = "INSERT INTO seller(email,fname,lname,password_hash,profile_pic) VALUES (:email,:fname,:lname,:password_hash,:profile_pic)";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash]);
+		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash,'profile_pic'=>$this->profile_pic]);
 	}
 
 	public function updateSeller(){
-		$SQL = "UPDATE seller set email=:email,fname=:fname,lname=:lname,profile_pic=:profile_pic where seller_id=:seller_id)";
+		$SQL = "UPDATE seller set email=:email,fname=:fname,lname=:lname,profile_pic=:profile_pic where seller_id=:seller_id";
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'profile_pic'=>$this->profile_pic]);
+		$STMT->execute(['seller_id'=>$this->seller_id,'email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'profile_pic'=>$this->profile_pic]);
 	}
 
 

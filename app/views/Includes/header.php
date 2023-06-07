@@ -35,8 +35,21 @@
         
         <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
 
+
         <li class="nav-item">
-          <a class="nav-link" href="/Main/profile"><?=_("Profile")?></a>
+          <?php if(isset($_SESSION['user_id'])){
+            $user = new \app\models\User();
+            $user = $user->getUserById($_SESSION['user_id']);
+            $userpfp = $user->profile_pic;?>
+
+            <a class="nav-link" href="/Main/profile"><img style="height:24px;width:24px;border-radius:50%" src="/images/<?= $userpfp?>"></a>
+          <?php }else if(isset($_SESSION['seller_id'])){
+            $seller = new \app\models\Seller();
+            $seller = $seller->getSellerById($_SESSION['seller_id']);
+            $sellerpfp = $seller->profile_pic;?>
+            
+            <a class="nav-link" href="/Main/profile"><img style="height:24px;width:24px;border-radius:50%" src="/images/<?= $sellerpfp?>"></a>
+          <?php }?>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="/Main/logout"><?=_("Logout")?></a>

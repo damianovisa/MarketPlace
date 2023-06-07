@@ -33,6 +33,7 @@ class Seller extends \app\core\Controller{
 					$seller->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 					$seller->fname = $_POST['fname'];
 					$seller->lname = $_POST['lname'];
+					$user->profile_pic = "pfp.png";
 					$seller->insertSeller();
 					header('location:/Seller/login');
 				}else{

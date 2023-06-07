@@ -29,7 +29,13 @@ class Main extends \app\core\Controller{
 
 				$user->updateUser();
 			}else if(isset($_SESSION['seller_id'])){
-				
+				$seller->seller_id = $_SESSION['seller_id'];
+				$seller->fname = $_POST['fname'];
+				$seller->lname = $_POST['lname'];
+				$seller->email = $_POST['email'];
+				$seller->profile_pic = $_POST['profile_pic'];	
+
+				$seller->updateSeller();
 			}
 		}
 
