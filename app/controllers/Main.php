@@ -18,6 +18,21 @@ class Main extends \app\core\Controller{
 		$seller = $seller->getSellerById($_SESSION['seller_id']);
 		}
 
+		if(isset($_POST['action'])){
+			if(isset($_SESSION['user_id'])){
+				$user->user_id = $_SESSION['user_id'];
+				$user->fname = $_POST['fname'];
+				$user->lname = $_POST['lname'];
+				$user->email = $_POST['email'];
+				$user->address = $_POST['address'];
+				$user->profile_pic = $_POST['profile_pic'];
+
+				$user->updateUser();
+			}else if(isset($_SESSION['seller_id'])){
+				
+			}
+		}
+
 		$this->view('/Main/profile',['user'=>$user,'seller'=>$seller]);
 	}
 	

@@ -29,9 +29,9 @@ if(isset($_SESSION['user_id'])){?>
             <form action="" method="post">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <?php if(!empty($info->profile_pic)){?>
-                <img class="rounded-circle mt-5" width="150px" src="<?= $info->profile_pic?>"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
+                <img class="rounded-circle mt-5" width="150px" height="150px" src="/images/<?= $info->profile_pic?>"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
                 <?php }else{?>
-                <img class="rounded-circle mt-5 mb-3" width="150px" src="/images/pfp.png"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
+                <img class="rounded-circle mt-5 mb-3" width="150px" name="profile_pic" src="/images/pfp.png"><span class="font-weight-bold"><?= $info->fname?></span><span class="text-black-50"><?= $info->email?></span><span></span></div>
                 <?php }?>
                 <input class="form-control" id="formFile" type="file" name="profile_pic">
             </div>
@@ -41,13 +41,16 @@ if(isset($_SESSION['user_id'])){?>
                     <h4 class="text-right">Profile Settings</h4>
                 </div>                
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">First name</label><input type="text" class="form-control" value="<?= $info->fname?>"></div>
-                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" class="form-control" value="<?= $info->lname?>"></div>
+                    <div class="col-md-6"><label class="labels">First name</label><input type="text" name="fname" class="form-control" value="<?= $info->fname?>"></div>
+                    <div class="col-md-6"><label class="labels">Last name</label><input type="text" name="lname" class="form-control" value="<?= $info->lname?>"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" value="<?= $info->email?>"></div>
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                    <div class="col-md-12"><label class="labels">Email Address</label><input type="text" name="email" class="form-control" value="<?= $info->email?>"></div>
+                    <?php if(isset($info->address)){?>
+                        <div class="col-md-12"><label class="labels">Address Line</label><input type="text" name="address" class="form-control" placeholder="Enter address line" value="<?= $info->address?>"></div>
+                    <?php }else{?>
+                        <div class="col-md-12"><label class="labels">Address Line</label><input type="text" name="address" class="form-control" placeholder="Enter address line" value=""></div>
+                    <?php }?>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
@@ -96,8 +99,6 @@ if(isset($_SESSION['user_id'])){?>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Email Address</label><input type="text" class="form-control" value="<?= $info->email?>"></div>
-                    <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                    <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>

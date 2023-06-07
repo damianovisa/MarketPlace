@@ -31,5 +31,10 @@ class User extends \app\core\Model{
 		$STMT->execute(['user_id'=>$this->user_id,'seller_id'=>$this->seller_id,'message'=>$this->message,'date'=>$this->date]);
 	}
 
+	public function updateUser(){
+		$SQL = "UPDATE user SET email=:email,fname=:fname,lname=:lname,address=:address,profile_pic=:profile_pic WHERE user_id=:user_id";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['user_id'=>$this->user_id,'email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'address'=>$this->address,'profile_pic'=>$this->profile_pic]);
+	}
 
 }

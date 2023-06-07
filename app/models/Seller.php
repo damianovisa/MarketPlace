@@ -49,6 +49,12 @@ class Seller extends \app\core\Model{
 		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'password_hash'=>$this->password_hash]);
 	}
 
+	public function updateSeller(){
+		$SQL = "UPDATE seller set email=:email,fname=:fname,lname=:lname,profile_pic=:profile_pic where seller_id=:seller_id)";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['email'=>$this->email,'fname'=>$this->fname,'lname'=>$this->lname,'profile_pic'=>$this->profile_pic]);
+	}
+
 
 
 }
