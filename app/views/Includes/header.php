@@ -24,17 +24,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/Main/index"><?=_("Home")?></a>
-        </li>
-        <?php if(isset($_SESSION['seller_id'])) {?>
-        <li class="nav-item">
-          <a class="nav-link" href="/Seller/addProduct"><?=_("Add product")?></a>
-        </li>
-        <?php }else{?>
-
-        <?php }?>
-        
+        </li>        
         <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
-
 
         <li class="nav-item">
           <?php if(isset($_SESSION['user_id'])){
@@ -51,20 +42,25 @@
             <a class="nav-link" href="/Main/profile"><img style="height:24px;width:24px;border-radius:50%" src="/images/<?= $sellerpfp?>"></a>
           <?php }?>
         </li>
+        <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
+        <li class="nav-item">
+          <a class="nav-link disabled "><?=_("Welcome")?> <?= $_SESSION['fname']?> <?= substr($_SESSION['lname'],0,1)?></a>
+        </li>
+        <?php }?>
          <li class="nav-item">
           <a class="nav-link" href="/Main/logout"><?=_("Logout")?></a>
         </li>
         <?php }else{?>
           
         <?php }?>
-        
-        <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])) {?>
-        <li class="nav-item">
-          <a class="nav-link disabled "><?=_("Welcome")?> <?= $_SESSION['fname']?></a>
-        </li>
-        <?php }else{?>
 
-          <?php }?>
+        <?php if(isset($_SESSION['seller_id'])) {?>
+        <li class="nav-item">
+          <a class="nav-link" href="/Seller/addProduct"><?=_("Add product")?></a>
+        </li>
+        <?php }?>
+        
+        
       </ul>
 
       <?php if(isset($_SESSION['user_id']) || isset($_SESSION['seller_id'])){?>
