@@ -15,6 +15,7 @@ if(isset($_SESSION['user_id'])){
     $info = $data['user'];
 }else{
     $info = $data['seller'];
+    $product = $data['product'];
 }
 
 
@@ -99,10 +100,6 @@ if(isset($_SESSION['user_id'])){?>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Email Address</label><input type="text" name="email" class="form-control" value="<?= $info->email?>"></div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                </div>
                 <div class="mt-5 text-center"><input class="btn btn-primary profile-button" type="submit" name="action" value="Save"> </div>
                 </form>
                 <!-- Form End -->
@@ -119,7 +116,66 @@ if(isset($_SESSION['user_id'])){?>
 </div>
 </div>
 </div>
-    <?php }?>
+
+                </br>
+                </br>
+
+<!-- View Seller Products -->
+<div class="container">
+
+        <div class="p-5 text-center bg-light mb-5">
+            <h1 class="mb-3">Your products</h1>
+        </div>
+
+        <div class="row">
+            <?php foreach ($product as $prod){?>
+                
+            <div class="col-sm-3 mb-5">
+                <div class="card shadow-sm h-100" >
+                    <div>
+                        <div class=""> 
+                        <img src="../images/<?php echo $prod->image?>" class="card-img p-3" width="100%" height="250px" style="object-fit:contain"/>
+                        <div class="card-body">
+                        <div class="text-center">
+                        <h5 class="card-title">
+                        <?php if(strlen($prod->name) > 28){?>
+                                <?=substr($prod->name,0,24)."...";?>
+                                
+                            <?php }else{?>
+                                <?=$prod->name?>
+                            <?php }?>
+                        </h5>
+                        <p class="text-muted mb-4">by <?php echo $prod->manufacturer ?></p>
+                        </div>
+                        <div>
+                            <?php if(strlen($prod->description) > 28){?>
+                                <?=substr($prod->description,0,32)."...";?>
+                                
+                            <?php }else{?>
+                                <?=$prod->description?>
+                            <?php }?>
+                            
+                        </div>
+                        <div class="d-flex justify-content-between total font-weight-bold mt-4">
+                            <span>$<?php echo $prod->price ?></span>
+                            <span><a href="/Seller/deleteProduct/<?= $prod->product_id?>" class="btn"><i class="bi bi-trash-fill"></i></a></span>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                     
+            <?php }?>
+        </div>
+</div>
+
+<?php }?>
+
+
+
+
+
 
 <?php $this->view("/Includes/footer");?>
 </body>

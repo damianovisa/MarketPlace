@@ -42,7 +42,7 @@
             $user = $user->getUserById($_SESSION['user_id']);
             $userpfp = $user->profile_pic;?>
 
-            <a class="nav-link" href="/Main/profile"><img style="height:24px;width:24px;border-radius:50%" src="/images/<?= $userpfp?>"></a>
+            <a class="nav-link" href="/Main/profile"><img style="height:24px;width:24px;border-radius:50%;object-fit:cover" src="/images/<?= $userpfp?>"></a>
           <?php }else if(isset($_SESSION['seller_id'])){
             $seller = new \app\models\Seller();
             $seller = $seller->getSellerById($_SESSION['seller_id']);
@@ -89,9 +89,6 @@
       <?php } if(isset($_SESSION['seller_id'])) {?>
         <a class="btn btn-outline-light btn-floating p-2 m-2" id="cartBtn" href="/Seller/viewReviews" role="button">
           <i class="bi bi-chat-left-text-fill"></i>
-      </a>
-      <a class="btn btn-outline-light btn-floating p-2" id="cartBtn" href="/Seller/viewProducts" role="button">
-          <i class="bi bi-bag-fill"></i>
       </a>
       <?php } else {?>
         <form method="get" action="" class="d-flex">

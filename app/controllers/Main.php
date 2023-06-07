@@ -11,10 +11,12 @@ class Main extends \app\core\Controller{
 	public function profile(){
 		$user = new \app\models\User();
 		$seller = new \app\models\Seller();
-
+		$product = new \app\models\Product();
+		
 		if(isset($_SESSION['user_id'])){
 		$user = $user->getUserById($_SESSION['user_id']);
 		}else if(isset($_SESSION['seller_id'])){
+		$product = $product->getBySeller($_SESSION['seller_id']);
 		$seller = $seller->getSellerById($_SESSION['seller_id']);
 		}
 
@@ -39,7 +41,7 @@ class Main extends \app\core\Controller{
 			}
 		}
 
-		$this->view('/Main/profile',['user'=>$user,'seller'=>$seller]);
+		$this->view('/Main/profile',['user'=>$user,'seller'=>$seller,'product'=>$product]);
 	}
 	
 	public function logout(){
